@@ -1,0 +1,53 @@
+#wrap {
+	text-align: center;
+}
+
+button {
+	font-size: 35px;
+}
+#message {
+	font-family: Courier, monospace;
+ 	text-align: center;
+}
+
+#tel {	
+	margin-bottom:0px;
+	margin-top: 0px;
+}
+
+.init, .end, .easy, .run {
+	font-size: 140px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.init {
+	color: blue;
+}
+.end {
+	color:red;
+}
+
+.easy {
+	color: green;
+}
+
+.active {
+	color: green;
+}
+
+.wait {
+	font-style: italic; 
+}
+
+.run {
+	color: blue;
+	background-color: light-blue;
+}
+
+
+#starttime, #inittime {
+	font-family: Courier, monospace;	
+	font-size: 20px;
+ 	text-align: center;	
+}
