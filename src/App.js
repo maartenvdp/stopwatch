@@ -16,7 +16,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: '5:00',
+      time: '1:14',
       statustext: 'Ready to Go',
       starttime: this.determineStartTime(),
       // buttons: ['start', 'wait', 'continue', 'stop'],
@@ -76,6 +76,7 @@ class App extends React.Component {
       // let newTime = seconds2time(currentSeconds);
       // this.setState({time: newTime});
 
+      clearInterval(this.timer)
 
       this.timer = setInterval( () => this.updateTime(), 1000);
 
