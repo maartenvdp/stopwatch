@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './stopwatch.css';
+import './watch.css';
 
 import Timer from './components/Timer'
 import { Knoppenbord } from './components/Knoppenbord'
@@ -92,7 +92,7 @@ class App extends React.Component {
     render() {
         return (
             <div id="wrap">
-                <Timer time={this.state.time} state={this.state.activebutton} />
+                <Timer time={this.state.time} activebutton={this.state.activebutton} />
                 <Knoppenbord action={this.verwerkKlik} buttons={this.buttons} activebutton={this.state.activebutton} />
                 <Statusline statustext={this.state.statustext} />
                 <Configuration starttime={this.state.starttime} action={this.changeStartTime} validate={this.validateTimeOnBlur} />

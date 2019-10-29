@@ -13,7 +13,7 @@ function ActiveButton(props) {
 }
 
 function Knoppenbord(props) {
-    console.log('Knoppenbord ' + props.activebutton);
+    // console.log('Knoppenbord ' + props.activebutton);
     const lijstding = props.buttons.map((textding, index) => {
         if (textding === props.activebutton) {
             console.log('yep' + textding);

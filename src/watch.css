@@ -15,16 +15,16 @@ button {
 	margin-top: 0px;
 }
 
-.init, .end, .easy, .run {
+.init, .start, .stop, .end, .wait, .easy, .run {
 	font-size: 140px;
 	font-weight: bold;
 	text-align: center;
 }
 
-.init {
+.start, .init {
 	color: blue;
 }
-.end {
+.stop {
 	color:red;
 }
 

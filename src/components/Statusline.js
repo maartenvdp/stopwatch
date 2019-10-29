@@ -14,18 +14,17 @@ class Statusline extends React.Component {
 
 
 function Spinningbal(props) {
-    console.log('time', props.time);
+    // console.log('time', props.time);
     let time = props.time.split(":");
     // console.log(time);
     let staticcoin = Number(time[0]);
-    let staticballs = 'COIN '.repeat(staticcoin);
-
+    
     let num = staticcoin ;
     let balls = 'COIN '.repeat(num);
-    console.log(balls);
-    let testletter = 'q';
+    // console.log(balls);
 
-  
+
+  // variable interpolation in JSX only possible with () brackets after returns
     if(props.activebutton === 'start') {
         return (<div className="spinningbal running">{balls }</div>)
     } else {

@@ -3,7 +3,7 @@ function ZeroPadString(sec) {
 }
 
 export function seconds2time(seconds) {
-	let timestring = '';
+
 	let m = Math.floor(seconds / 60);
 	let s = seconds % 60;
 	let sstring = ZeroPadString(s);
