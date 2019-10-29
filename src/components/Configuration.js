@@ -5,7 +5,7 @@ function Configuration (props) {
     
         return (
             <div id="configuration">
-               start time <input type="text" value={props.starttime} onChange={props.action} onBlur={props.validate} ></input>
+               start time <input id="inittime" type="text" value={props.starttime} onChange={props.action} onBlur={props.validate} ></input>
             </div>
         );
     

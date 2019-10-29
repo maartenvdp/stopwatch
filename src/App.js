@@ -7,7 +7,7 @@ import Timer from './components/Timer'
 import { Knoppenbord } from './components/Knoppenbord'
 import { Statusline, Spinningbal } from './components/Statusline'
 import Configuration from './components/Configuration'
-import {time2seconds, seconds2time} from './components/tijdfuncties'
+import { time2seconds, seconds2time } from './components/tijdfuncties'
 
 class App extends React.Component {
 
@@ -16,9 +16,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: '1:14',
+      time: '6:00',
       statustext: 'Ready to Go',
-      starttime: this.determineStartTime(),
+      starttime: '6:00',
       // buttons: ['start', 'wait', 'continue', 'stop'],
       activebutton: '',
       running: false
@@ -29,31 +29,32 @@ class App extends React.Component {
     this.verwerkKlik = this.verwerkKlik.bind(this);
     this.changeStartTime = this.changeStartTime.bind(this);
     this.validateTimeOnBlur = this.validateTimeOnBlur.bind(this);
+    // this.determineStartTime();
 
     //  console.log(this.state.activeButton);
 
   }
-  componentDidUpdate(prevProps, prevState) {
 
-  }
-  determineStartTime() {
-    // function getInitteller() {
-    //   var initseconds;
-    //   if(document.getElementById("inittime").value) {
-    //     initseconds = time2seconds(document.getElementById("inittime").value);
-    //     localStorage.setItem('initt', initseconds);
-    //   } else if(localStorage.getItem('initt')) {
-    //     initseconds = localStorage.getItem('initt');
-    //     document.getElementById("inittime").value = seconds2time(initseconds);
-    //    } else {
-    //      initseconds = 360;
-    //     document.getElementById("inittime").value = seconds2time(initseconds);
-    //   }
-    //   return initseconds;
+  componentDidMount() {
+    if(localStorage.getItem('initt')) {
+      let initt = localStorage.getItem('initt');
+        document.getElementById("inittime").value = initt; // only possible after everything mounted
+        this.setState({ time: initt });
+        this.setState({ starttime: initt });
+     }  else if (document.getElementById("inittime").value) {
+      this.setState({ time: document.getElementById("inittime").value });
+      this.setState({ starttime: document.getElementById("inittime").value });
+      localStorage.setItem('initt', document.getElementById("inittime").value);
+     }
+      
+
+    // } else {
+    //   this.setState({ time: '16:00' })
     // }
 
-    return '6:00';
   }
+
+
   verwerkKlik(e) {
     console.log(e.target.value);
     console.log('verwerkKlik ' + e);
@@ -75,10 +76,10 @@ class App extends React.Component {
       // let currentSeconds = time2seconds(currentTime) - 1;
       // let newTime = seconds2time(currentSeconds);
       // this.setState({time: newTime});
-
+      this.componentDidMount();
       clearInterval(this.timer)
 
-      this.timer = setInterval( () => this.updateTime(), 1000);
+      this.timer = setInterval(() => this.updateTime(), 1000);
 
 
       // this.updateTime();
@@ -111,19 +112,19 @@ class App extends React.Component {
   }
 
   updateTime() {
- 
+
     // this.setState({ running: true });
 
 
     let currentTime = this.state.time;
     let currentSeconds = time2seconds(currentTime) - 1;
     let newTime = seconds2time(currentSeconds);
-    this.setState({time: newTime});
+    this.setState({ time: newTime });
 
     console.log(currentSeconds);
     // return currentSeconds;
 
-    
+
   }
 
   // twee eventhandlers, 1 voor de invoer, 1 voor validering, je wil alleen valideren op het verlaten van het veld
@@ -131,6 +132,8 @@ class App extends React.Component {
     console.log(e);
     this.setState({ starttime: e.target.value });
     this.setState({ time: e.target.value });
+    localStorage.setItem('initt', document.getElementById("inittime").value);
+
   }
 
   validateTimeOnBlur(e) {
@@ -142,7 +145,7 @@ class App extends React.Component {
 
       return true;
     } else {
-      this.setState({ starttime: '6:00' });
+      // this.setState({ starttime: '6:00' });
       this.setState({ time: '6:00' });
 
     }
