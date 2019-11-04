@@ -1,3 +1,9 @@
+### 4-11-2019
+
+* added stopcondition (but is it the right place?)
+* added sound
+
+
 ### 29-10-2019
 
 * css changes
