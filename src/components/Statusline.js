@@ -6,12 +6,17 @@ import React from 'react';
 function Statusline(props) {
     let statustext = 'Ready to Go';
     // let statuslines = ['Ready to Go', 'Running', 'Interupted', 'Stopped'];
-    
-    if(props.activebutton === 'start') {
+    let time = props.time.split(":");
+    let seconds = time[1];
+    console.log('statusline seconds:', seconds);
+    if (seconds === '00') {
+        statustext = 'BOOOOOOOOOM!';
+    } else if (props.activebutton === 'start') {
         statustext = 'Running';
-    } else if(props.activebutton === 'stop') {
+
+    } else if (props.activebutton === 'stop') {
         statustext = 'Stopped';
-    } else if(props.activebutton === 'wait') {
+    } else if (props.activebutton === 'wait') {
         statustext = 'Interupted';
     } else {
         statustext = 'Ready to Go';
@@ -31,18 +36,18 @@ function Spinningbal(props) {
     let time = props.time.split(":");
     // console.log(time);
     let staticcoin = Number(time[0]);
-    
-    let num = staticcoin ;
+
+    let num = staticcoin;
     let balls = 'COIN '.repeat(num);
     // console.log(balls);
 
 
-  // variable interpolation in JSX only possible with () brackets after returns
-    if(props.activebutton === 'start') {
-        return (<div className="spinningbal running">{balls }</div>)
+    // variable interpolation in JSX only possible with () brackets after returns
+    if (props.activebutton === 'start') {
+        return (<div className="spinningbal running">{balls}</div>)
     } else {
-        return (<div className="spinningbal">{balls }</div>)
+        return (<div className="spinningbal">{balls}</div>)
     }
 }
 
-export {Statusline, Spinningbal};
+export { Statusline, Spinningbal };

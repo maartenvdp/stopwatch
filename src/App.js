@@ -62,7 +62,7 @@ class App extends React.Component {
         let newTime = seconds2time(currentSeconds);
 
         if(currentSeconds === 0) {
-            // this.setState({activebutton: 'stop'});s
+            // this.setState({activebutton: 'stop'});
             clearInterval(this.timer); // is this the place?
         }
         this.setState({ time: newTime });
@@ -94,8 +94,8 @@ class App extends React.Component {
         return (
             <div id="wrap">
                 <Timer time={this.state.time} activebutton={this.state.activebutton} />
-                <Knoppenbord action={this.verwerkKlik} buttons={this.buttons} activebutton={this.state.activebutton} />
-                <Statusline time={this.state.time} activebutton={this.state.activebutton} statustext={this.state.statustext} />
+                <Knoppenbord action={this.verwerkKlik} time={this.state.time} activebutton={this.state.activebutton} />
+                <Statusline time={this.state.time} activebutton={this.state.activebutton}  />
                 <Configuration starttime={this.state.starttime} action={this.changeStartTime} validate={this.validateTimeOnBlur} />
                 <Spinningbal activebutton={this.state.activebutton} time={this.state.time} />
                 <Sound activebutton={this.state.activebutton} time={this.state.time} />

@@ -1,5 +1,6 @@
 ### 5-11-2019
 
+* css tweaks
 * play sound as a component, as an interface thing
 * refactor code
 

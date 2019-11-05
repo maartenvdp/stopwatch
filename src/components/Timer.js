@@ -6,16 +6,16 @@ function Timer(props) {
     console.log('active button: ', props.activebutton);
 
     let classname = 'init';
-    if (props.activebutton === 'stop') {
+    if (props.activebutton === 'stop' || seconds === 0) {
         classname = 'stop';
-    } else if(props.activebutton === 'wait'){
+    } else if (props.activebutton === 'wait') {
         classname += ' wait';
-    } else if(props.activebutton === 'start') {
-        if(seconds > 30 ) {
-            classname =  'run';
+    } else if (props.activebutton === 'start') {
+        if (seconds > 30) {
+            classname = 'run';
         } else {
             classname = 'easy';
-        } 
+        }
     } else {
         classname = 'init';
     }

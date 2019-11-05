@@ -7,22 +7,29 @@ button {
 }
 #message {
 	font-family: Courier, monospace;
- 	text-align: center;
+     text-align: center;
+     color: green;
+     padding: 5px;
 }
 
-#tel {	
+/* #tel {	
 	margin-bottom:0px;
 	margin-top: 0px;
+} */
+
+div#tel {
+	font-size: 140px;
+	/* font-weight: bold; */
+    text-align: center;
+    /* color: green; */
 }
 
-.init, .start, .stop, .end, .wait, .easy, .run {
-	font-size: 140px;
-	font-weight: bold;
-	text-align: center;
-}
+
+/* div#tell.start, .stop, .end, .wait, .easy, .run */
 
 .start, .init {
-	color: blue;
+    color: blue;
+
 }
 .stop {
 	color:red;
@@ -33,7 +40,9 @@ button {
 }
 
 .active {
-	color: green;
+    color: green;
+    font-style: italic; 
+
 }
 
 .wait {
@@ -46,7 +55,7 @@ button {
 }
 
 
-#starttime, #inittime {
+#inittime {
 	font-family: Courier, monospace;	
 	font-size: 20px;
  	text-align: center;	

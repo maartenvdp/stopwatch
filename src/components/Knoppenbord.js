@@ -14,16 +14,20 @@ function ActiveButton(props) {
 
 function Knoppenbord(props) {
     // console.log('Knoppenbord ' + props.activebutton);
-
+    let time = props.time.split(":");
+    let seconds = time[1];
     let buttons =  ['start', 'wait', 'continue', 'stop'];
-
-    const lijstding = buttons.map((textding, index) => {
-        if (textding === props.activebutton) {
-            console.log('yep' + textding);
-            return <button key={index} value={textding} className="active" id={textding} name={textding} onClick={props.action}>{textding || 'hier moet iets staan'} </button>
+    let activebutton = props.activebutton;
+    if(seconds === '00' ) {
+        activebutton = 'stop';
+    }
+    const lijstding = buttons.map((knoplabel, index) => {
+        if (knoplabel === activebutton) {
+            console.log('yep' + knoplabel);
+            return <button key={index} value={knoplabel} className="active" id={knoplabel} name={knoplabel} onClick={props.action}>{knoplabel || 'hier moet iets staan'} </button>
 
         } else {
-            return <button key={index} value={textding} id={textding} name={textding} onClick={props.action}>{textding || 'hier moet iets staan'} </button>
+            return <button key={index} value={knoplabel} id={knoplabel} name={knoplabel} onClick={props.action}>{knoplabel || 'hier moet iets staan'} </button>
         }
     });
     return (
