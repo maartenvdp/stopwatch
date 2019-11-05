@@ -14,7 +14,10 @@ function ActiveButton(props) {
 
 function Knoppenbord(props) {
     // console.log('Knoppenbord ' + props.activebutton);
-    const lijstding = props.buttons.map((textding, index) => {
+
+    let buttons =  ['start', 'wait', 'continue', 'stop'];
+
+    const lijstding = buttons.map((textding, index) => {
         if (textding === props.activebutton) {
             console.log('yep' + textding);
             return <button key={index} value={textding} className="active" id={textding} name={textding} onClick={props.action}>{textding || 'hier moet iets staan'} </button>

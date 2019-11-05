@@ -1,3 +1,15 @@
+### 5-11-2019
+
+* play sound as a component, as an interface thing
+* refactor code
+
+
+#### rethinking architecture DRY
+
+* think of the minimal set of mutable state that your app needs
+* Figure out the absolute minimal representation of the state your application needs 
+* and compute everything else you need on-demand
+
 ### 4-11-2019
 
 * added stopcondition (but is it the right place?)

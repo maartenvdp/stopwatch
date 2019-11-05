@@ -1,16 +1,29 @@
 import React from 'react';
 // import '../App.css';
 
-class Statusline extends React.Component {
 
-    render() {
-        return (
-            <div id="message" >
-                {this.props.statustext}
-            </div>
-        );
+
+function Statusline(props) {
+    let statustext = 'Ready to Go';
+    // let statuslines = ['Ready to Go', 'Running', 'Interupted', 'Stopped'];
+    
+    if(props.activebutton === 'start') {
+        statustext = 'Running';
+    } else if(props.activebutton === 'stop') {
+        statustext = 'Stopped';
+    } else if(props.activebutton === 'wait') {
+        statustext = 'Interupted';
+    } else {
+        statustext = 'Ready to Go';
     }
+    return (
+        <div id="message" >
+            {statustext}
+        </div>
+    );
+
 }
+
 
 
 function Spinningbal(props) {
