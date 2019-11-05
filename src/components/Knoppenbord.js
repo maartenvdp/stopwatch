@@ -15,10 +15,10 @@ function ActiveButton(props) {
 function Knoppenbord(props) {
     // console.log('Knoppenbord ' + props.activebutton);
     let time = props.time.split(":");
-    let seconds = time[1];
+    // let seconds = time[1];
     let buttons =  ['start', 'wait', 'continue', 'stop'];
     let activebutton = props.activebutton;
-    if(seconds === '00' ) {
+    if(props.time === '0:00' ) {
         activebutton = 'stop';
     }
     const lijstding = buttons.map((knoplabel, index) => {

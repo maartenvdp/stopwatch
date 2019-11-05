@@ -7,9 +7,10 @@ function Statusline(props) {
     let statustext = 'Ready to Go';
     // let statuslines = ['Ready to Go', 'Running', 'Interupted', 'Stopped'];
     let time = props.time.split(":");
-    let seconds = time[1];
-    console.log('statusline seconds:', seconds);
-    if (seconds === '00') {
+    // let seconds = time[1];
+    // let minutes = time[0];
+    // console.log('statusline seconds:', seconds);
+    if (props.time === '0:00') {
         statustext = 'BOOOOOOOOOM!';
     } else if (props.activebutton === 'start') {
         statustext = 'Running';
