@@ -3,10 +3,13 @@ import React from 'react';
 function Timer(props) {
     let time = props.time.split(":");
     let seconds = Number(time[1]);
+    let minutes = Number(time[0]);
+
     console.log('active button: ', props.activebutton);
+    console.log('minutes: ', minutes, 'seconds: ', seconds);
 
     let classname = 'init';
-    if (props.activebutton === 'stop' || seconds === 0) {
+    if (props.activebutton === 'stop' || (minutes === 0 && seconds === 0)) {
         classname = 'stop';
     } else if (props.activebutton === 'wait') {
         classname += ' wait';
