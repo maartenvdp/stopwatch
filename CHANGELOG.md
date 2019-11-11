@@ -1,5 +1,7 @@
 ### 11-11-2019
- * bugfix: no red timer (class stop) anymore every minute
+* started storage component
+* change exactly on zero
+* bugfix: no red timer (class stop) anymore every minute
 
 ### 5-11-2019
 

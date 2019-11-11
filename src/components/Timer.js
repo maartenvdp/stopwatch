@@ -14,13 +14,20 @@ function Timer(props) {
     } else if (props.activebutton === 'wait') {
         classname += ' wait';
     } else if (props.activebutton === 'start') {
-        if (seconds > 30) {
+        if (seconds > 30 || seconds === 0) {
             classname = 'run';
         } else {
             classname = 'easy';
         }
     } else {
-        classname = 'init';
+        // classname = 'init';
+        if (seconds > 30 || seconds === 0) {
+            classname = 'run';
+        } else {
+            classname = 'easy';
+        }
+ 
+
     }
     console.log('classname: ', classname);
 

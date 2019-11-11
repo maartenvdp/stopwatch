@@ -7,6 +7,8 @@ import { Knoppenbord } from './components/Knoppenbord'
 import { Statusline, Spinningbal } from './components/Statusline'
 import Configuration from './components/Configuration'
 import Sound from './components/Sound'
+import Storage from './components/Storage'
+
 import { time2seconds, seconds2time } from './components/tijdfuncties'
 
 class App extends React.Component {
@@ -26,16 +28,20 @@ class App extends React.Component {
     }
 
     componentDidMount() {
+        // var localStorage = '';
+
+        // StorageHandling after mounting
+        // also after changing inputvalue
         if (localStorage.getItem('initt')) {
             let initt = localStorage.getItem('initt');
             document.getElementById("inittime").value = initt; // only possible after everything mounted
-            this.setState({ time: initt });
+            this.setState({ time: initt, starttime: initt });
             this.setState({ starttime: initt });
         } else if (document.getElementById("inittime").value) {
             this.setState({ time: document.getElementById("inittime").value });
             this.setState({ starttime: document.getElementById("inittime").value });
             localStorage.setItem('initt', document.getElementById("inittime").value);
-        }
+        }  
     }
 
     verwerkKlik(e) {
@@ -90,15 +96,16 @@ class App extends React.Component {
     }
 
     render() {
-        console.log('maak geluik: ', this.state.time);
+        console.log('maak geluid: ', this.state.time);
         return (
-            <div id="wrap">
+            <div id="stopwatch">
                 <Timer time={this.state.time} activebutton={this.state.activebutton} />
                 <Knoppenbord action={this.verwerkKlik} time={this.state.time} activebutton={this.state.activebutton} />
                 <Statusline time={this.state.time} activebutton={this.state.activebutton}  />
                 <Configuration starttime={this.state.starttime} action={this.changeStartTime} validate={this.validateTimeOnBlur} />
                 <Spinningbal activebutton={this.state.activebutton} time={this.state.time} />
                 <Sound activebutton={this.state.activebutton} time={this.state.time} />
+                <Storage starttime={this.state.starttime} />
             </div>
         );
     }
