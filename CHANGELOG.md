@@ -1,4 +1,8 @@
+### 14-11-2019
+* wait en continue implementend (naive)
+
 ### 11-11-2019
+
 * started storage component
 * change exactly on zero
 * bugfix: no red timer (class stop) anymore every minute

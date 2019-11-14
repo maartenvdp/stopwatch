@@ -32,7 +32,7 @@ function Timer(props) {
     console.log('classname: ', classname);
 
     return (
-        <div id="tel" className={classname}>
+        <div id="timer" className={classname}>
             {props.time}
         </div>
     )

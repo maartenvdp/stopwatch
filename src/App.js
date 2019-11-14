@@ -51,6 +51,13 @@ class App extends React.Component {
             this.componentDidMount();
             clearInterval(this.timer)
             this.timer = setInterval(() => this.updateTime(), 1000);
+        } else if(e.target.value === 'wait'){ // not sure if this is alright
+            // this.setState({ starttime:  });
+            clearInterval(this.timer)
+
+        } else if(e.target.value === 'continue'){
+            clearInterval(this.timer)
+            this.timer = setInterval(() => this.updateTime(), 1000);
         } else {
             clearInterval(this.timer)
         }
