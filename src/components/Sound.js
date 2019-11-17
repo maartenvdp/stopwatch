@@ -6,7 +6,7 @@
 function Sound(props) {
     
 
-    console.log('maak geluid: ', props.time);
+    // console.log('maak geluid: ', props.time);
 
     let timearray = props.time.split(":");
     let seconds = Number(timearray[1]);

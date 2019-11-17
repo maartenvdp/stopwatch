@@ -18,7 +18,8 @@ class App extends React.Component {
         this.state = {
             time: '6:00',
             starttime: '6:00',
-            activebutton: ''
+            activebutton: '',
+            configuration: 'show'
         };
         
         this.verwerkKlik = this.verwerkKlik.bind(this);
@@ -44,9 +45,9 @@ class App extends React.Component {
         }  
     }
 
-    verwerkKlik(e) {
-        console.log(e.target.value);
-        console.log('verwerkKlik ' + e);
+    verwerkKlik(e) { // from dashboard
+        // console.log(e.target.value);
+        // console.log('verwerkKlik ' + e);
         if (e.target.value === 'start') {
             this.componentDidMount();
             clearInterval(this.timer)
@@ -61,21 +62,39 @@ class App extends React.Component {
         } else {
             clearInterval(this.timer)
         }
+
+    
+
+
+
         this.setState({ activebutton: e.target.value }, function () {
-            console.log(this.state.activebutton);
+            // console.log(this.state.activebutton);
         });
         // const i = this.buttons.indexOf(e.target.value);
         // const status = this.statuslines[i];
         // this.setState({ statustext: status });
     }
 
+    verwerkVisibilitiyClick = (e) => { // from configuration, don't need to bind the handler in the constructor
+        // console.log(e.target);
+        // console.log(e.target.value);
+        if (e.target.value === 'show') {
+            this.setState({ configuration: 'show'});
+
+        } else if(e.target.value === 'hide') {
+            this.setState({ configuration: 'hide'});
+
+        }   
+
+
+   
+    }
+
     updateTime() {
         let currentTime = this.state.time;
         let currentSeconds = time2seconds(currentTime) - 1;
         let newTime = seconds2time(currentSeconds);
-
         if(currentSeconds === 0) {
-            // this.setState({activebutton: 'stop'});
             clearInterval(this.timer); // is this the place?
         }
         this.setState({ time: newTime });
@@ -83,7 +102,7 @@ class App extends React.Component {
 
     // twee eventhandlers, 1 voor de invoer, 1 voor validering, je wil alleen valideren op het verlaten van het veld
     changeStartTime(e) {
-        console.log(e);
+        // console.log(e);
         this.setState({ starttime: e.target.value });
         this.setState({ time: e.target.value });
         localStorage.setItem('initt', document.getElementById("inittime").value);
@@ -94,7 +113,7 @@ class App extends React.Component {
         // heel precies de boundaries aangeven.
         console.log('validate test: ' + e.target.value)
         if (re.test(e.target.value)) {
-            console.log('validate: yep dus ')
+            // console.log('validate: yep dus ')
             return true;
         } else {
             // this.setState({ starttime: '6:00' });
@@ -103,14 +122,14 @@ class App extends React.Component {
     }
 
     render() {
-        console.log('maak geluid: ', this.state.time);
+      
         return (
             <div id="stopwatch">
                 <Timer time={this.state.time} activebutton={this.state.activebutton} />
-                <Knoppenbord action={this.verwerkKlik} time={this.state.time} activebutton={this.state.activebutton} />
                 <Statusline time={this.state.time} activebutton={this.state.activebutton}  />
-                <Configuration starttime={this.state.starttime} action={this.changeStartTime} validate={this.validateTimeOnBlur} />
+                <Knoppenbord action={this.verwerkKlik} time={this.state.time} activebutton={this.state.activebutton} />
                 <Coins activebutton={this.state.activebutton} time={this.state.time} />
+                <Configuration configuration={this.state.configuration} starttime={this.state.starttime} action={this.changeStartTime} validate={this.validateTimeOnBlur} visibility={this.verwerkVisibilitiyClick} />
                 <Sound activebutton={this.state.activebutton} time={this.state.time} />
                 <Storage starttime={this.state.starttime} />
             </div>

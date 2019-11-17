@@ -5,8 +5,8 @@ function Timer(props) {
     let seconds = Number(time[1]);
     let minutes = Number(time[0]);
 
-    console.log('active button: ', props.activebutton);
-    console.log('minutes: ', minutes, 'seconds: ', seconds);
+    // console.log('active button: ', props.activebutton);
+    // console.log('minutes: ', minutes, 'seconds: ', seconds);
 
     let classname = 'init';
     if (props.activebutton === 'stop' || (minutes === 0 && seconds === 0)) {
@@ -29,7 +29,7 @@ function Timer(props) {
  
 
     }
-    console.log('classname: ', classname);
+    // console.log('classname: ', classname);
 
     return (
         <div id="timer" className={classname}>

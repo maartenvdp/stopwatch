@@ -1,5 +1,6 @@
 ### 17-11-2019
 
+* show hide configuration
 * number of coins correct
 * deployment, add to package.json   "homepage": "./",
 * every 30s a beep
