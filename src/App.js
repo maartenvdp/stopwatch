@@ -85,6 +85,7 @@ class App extends React.Component {
             this.setState({ configuration: 'hide'});
 
         }   
+        this.setState({ activebutton: '' });
 
 
    
@@ -95,7 +96,10 @@ class App extends React.Component {
         let currentSeconds = time2seconds(currentTime) - 1;
         let newTime = seconds2time(currentSeconds);
         if(currentSeconds === 0) {
+ 
             clearInterval(this.timer); // is this the place?
+            // this.setState({ activebutton: 'stop' });
+
         }
         this.setState({ time: newTime });
     }
