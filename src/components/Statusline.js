@@ -14,11 +14,12 @@ function Statusline(props) {
         statustext = 'BOOOOOOOOOM!';
     } else if (props.activebutton === 'start') {
         statustext = 'Running';
-
     } else if (props.activebutton === 'stop') {
         statustext = 'Stopped';
     } else if (props.activebutton === 'wait') {
         statustext = 'Interupted';
+    } else if (props.activebutton === 'continue') {
+            statustext = 'Running';        
     } else {
         statustext = 'Ready to Go';
     }
@@ -27,28 +28,40 @@ function Statusline(props) {
             {statustext}
         </div>
     );
-
 }
 
 
+function Coins(props) {
 
-function Spinningbal(props) {
-    // console.log('time', props.time);
     let time = props.time.split(":");
+    let seconds = Number(time[1]);
+    let minutes = Number(time[0]);
+
+    // console.log('time', props.time);
     // console.log(time);
-    let staticcoin = Number(time[0]);
+    let Numberofcoins = minutes; 
 
-    let num = staticcoin;
-    let balls = 'COIN '.repeat(num);
+    let balls = 'COIN '.repeat(Numberofcoins); 
     // console.log(balls);
-
+//     const listItems = numbers.map((number) =>
+//     <li>{number}</li>
+//   );
+//   return (
+//     <ul>{listItems}</ul>
+//   );
 
     // variable interpolation in JSX only possible with () brackets after returns
-    if (props.activebutton === 'start') {
-        return (<div className="spinningbal running">{balls}</div>)
+    if (! props.activebutton) {
+        if(seconds >= 0 && seconds <= 30) {
+        return (<div className="coins">{'COIN '.repeat(minutes)}</div>)
+        } else {
+            return (<div className="coins">{'COIN '.repeat(minutes+ 1)}</div>)
+        }
     } else {
-        return (<div className="spinningbal">{balls}</div>)
+        
+            return (<div className="coins">{'COIN '.repeat(minutes)}</div>)
+           
     }
 }
 
-export { Statusline, Spinningbal };
+export { Statusline, Coins };

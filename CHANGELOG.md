@@ -1,3 +1,9 @@
+### 17-11-2019
+
+* number of coins correct
+* deployment, add to package.json   "homepage": "./",
+* every 30s a beep
+
 ### 14-11-2019
 * wait en continue implementend (naive)
 

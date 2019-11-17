@@ -4,7 +4,7 @@ import './watch.css';
 
 import Timer from './components/Timer'
 import { Knoppenbord } from './components/Knoppenbord'
-import { Statusline, Spinningbal } from './components/Statusline'
+import { Statusline, Coins } from './components/Statusline'
 import Configuration from './components/Configuration'
 import Sound from './components/Sound'
 import Storage from './components/Storage'
@@ -110,7 +110,7 @@ class App extends React.Component {
                 <Knoppenbord action={this.verwerkKlik} time={this.state.time} activebutton={this.state.activebutton} />
                 <Statusline time={this.state.time} activebutton={this.state.activebutton}  />
                 <Configuration starttime={this.state.starttime} action={this.changeStartTime} validate={this.validateTimeOnBlur} />
-                <Spinningbal activebutton={this.state.activebutton} time={this.state.time} />
+                <Coins activebutton={this.state.activebutton} time={this.state.time} />
                 <Sound activebutton={this.state.activebutton} time={this.state.time} />
                 <Storage starttime={this.state.starttime} />
             </div>
