@@ -1,5 +1,7 @@
 ### 24-11-2019
 
+* show/hide configuration in local storage
+* sound controllable in Preferences (former configuration)
 * click sound optional in state
 
 

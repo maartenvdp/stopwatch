@@ -5,7 +5,7 @@ import './watch.css';
 import Timer from './components/Timer'
 import { Knoppenbord } from './components/Knoppenbord'
 import { Statusline, Coins } from './components/Statusline'
-import Configuration from './components/Configuration'
+import Preferences from './components/Preferences'
 import Sound from './components/Sound'
 import Storage from './components/Storage'
 
@@ -19,8 +19,8 @@ class App extends React.Component {
             time: '6:00',
             starttime: '6:00',
             activebutton: '',
-            configuration: 'show',
-            sound: false
+            visible: 'yes',
+            sound: 'yes'
         };
         
         this.verwerkKlik = this.verwerkKlik.bind(this);
@@ -44,6 +44,12 @@ class App extends React.Component {
             this.setState({ starttime: document.getElementById("inittime").value });
             localStorage.setItem('initt', document.getElementById("inittime").value);
         }  
+        // Configuration show
+        if (localStorage.getItem('showconfig')) {
+            let showconfig= localStorage.getItem('showconfig') === 'show'? 'yes':'no';
+            this.setState({ visible: showconfig});
+        }
+
     }
 
     verwerkKlik(e) { // from dashboard
@@ -76,18 +82,19 @@ class App extends React.Component {
         // this.setState({ statustext: status });
     }
 
-    verwerkVisibilitiyClick = (e) => { // from configuration, don't need to bind the handler in the constructor
+    verwerkVisibilitiyClick = (e) => { // from Preferences, don't need to bind the handler in the constructor
         // console.log(e.target);
-        // console.log(e.target.value);
+        console.log(e.target.value);
         if (e.target.value === 'show') {
-            this.setState({ configuration: 'show'});
+            this.setState({ visible: 'yes'});
 
         } else if(e.target.value === 'hide') {
-            this.setState({ configuration: 'hide'});
+            this.setState({ visible: 'no'});
 
         }   
         this.setState({ activebutton: '' });
 
+        localStorage.setItem('showconfig', e.target.value);
 
    
     }
@@ -126,6 +133,26 @@ class App extends React.Component {
         }
     }
 
+    onSoundChange = (e) => { // from Preferences, don't need to bind the handler in the constructor
+    // console.log(e.target);
+    console.log('sound', e.target.value);
+    if (e.target.value === 'no') {
+        this.setState({ sound: 'no'});
+
+    } else  {
+        this.setState({ sound: 'yes'});
+
+    }   
+
+
+    // this.setState({ activebutton: '' });
+
+
+
+}
+
+
+
     render() {
       
         return (
@@ -134,7 +161,7 @@ class App extends React.Component {
                 <Statusline time={this.state.time} activebutton={this.state.activebutton}  />
                 <Knoppenbord action={this.verwerkKlik} time={this.state.time} activebutton={this.state.activebutton} />
                 <Coins activebutton={this.state.activebutton} time={this.state.time} />
-                <Configuration configuration={this.state.configuration} starttime={this.state.starttime} action={this.changeStartTime} validate={this.validateTimeOnBlur} visibility={this.verwerkVisibilitiyClick} />
+                <Preferences preferences={this.state}  action={this.changeStartTime} validate={this.validateTimeOnBlur} visibility={this.verwerkVisibilitiyClick} onSoundChange={this.onSoundChange} />
                 <Sound activebutton={this.state.activebutton} time={this.state.time} sound={this.state.sound} />
                 <Storage starttime={this.state.starttime} />
             </div>
