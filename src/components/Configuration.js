@@ -2,6 +2,7 @@ import React from 'react';
 // import '../App.css';
 
 function Configuration(props) {
+    console.log(props);
     let klass = "showconfiguration";
     let buttonvalue = "show";
     if (props.configuration === 'hide') {

@@ -1,3 +1,8 @@
+### 24-11-2019
+
+* click sound optional in state
+
+
 ### 17-11-2019
 
 * sound bug at zero

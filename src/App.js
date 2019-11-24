@@ -19,7 +19,8 @@ class App extends React.Component {
             time: '6:00',
             starttime: '6:00',
             activebutton: '',
-            configuration: 'show'
+            configuration: 'show',
+            sound: false
         };
         
         this.verwerkKlik = this.verwerkKlik.bind(this);
@@ -134,7 +135,7 @@ class App extends React.Component {
                 <Knoppenbord action={this.verwerkKlik} time={this.state.time} activebutton={this.state.activebutton} />
                 <Coins activebutton={this.state.activebutton} time={this.state.time} />
                 <Configuration configuration={this.state.configuration} starttime={this.state.starttime} action={this.changeStartTime} validate={this.validateTimeOnBlur} visibility={this.verwerkVisibilitiyClick} />
-                <Sound activebutton={this.state.activebutton} time={this.state.time} />
+                <Sound activebutton={this.state.activebutton} time={this.state.time} sound={this.state.sound} />
                 <Storage starttime={this.state.starttime} />
             </div>
         );
