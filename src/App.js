@@ -50,6 +50,12 @@ class App extends React.Component {
             this.setState({ visible: showconfig});
         }
 
+        if (localStorage.getItem('sound')) {
+            let sound= localStorage.getItem('sound');
+            this.setState({ sound: sound});
+        }
+
+
     }
 
     verwerkKlik(e) { // from dashboard
@@ -143,6 +149,7 @@ class App extends React.Component {
         this.setState({ sound: 'yes'});
 
     }   
+    localStorage.setItem('sound', e.target.value);
 
 
     // this.setState({ activebutton: '' });

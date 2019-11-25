@@ -1,3 +1,8 @@
+
+### 25-11-219
+
+* storage sound
+
 ### 24-11-2019
 
 * show/hide configuration in local storage
