@@ -91,6 +91,7 @@ class App extends React.Component {
     verwerkVisibilitiyClick = (e) => { // from Preferences, don't need to bind the handler in the constructor
         // console.log(e.target);
         console.log(e.target.value);
+        // e.preventDefault();
         if (e.target.value === 'show') {
             this.setState({ visible: 'yes'});
 

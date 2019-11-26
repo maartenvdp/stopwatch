@@ -2,6 +2,7 @@
 	text-align: center;
 }
 
+
 button {
 	font-size: 35px;
 }
@@ -29,6 +30,7 @@ div#timer {
 }
 .coin {
     background-color: orange;
+    opacity: 0.6;
     color: black;
     border-radius: 50%;
     display: inline-block;
@@ -41,22 +43,64 @@ div#timer {
  
 }
 
-button#visbutton {
-  color: black;
-  padding: 3px 10px;
-  margin: 5px;
-  text-align: center;
+
+
+/* https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md */
+
+.link-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .link-button:hover,
+  .link-button:focus {
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  }
+
+ /* preferences */
+#preferences {
+    /* position: relative; */
+    /* left: 100px; */
+    color: goldenrod;
+    /* text-align: left; */
+
 }
 
+#configuration {
+    position: relative;
+    top: 30px;
+    left: 40px;
+}
+
+.config {
+    position: relative;
+    left: 10px;
+}
 .hideconfiguration {
-    display: none;
+    display: none; 
 }
 
-/* div#timerl.start, .stop, .end, .wait, .easy, .run */
 
+#inittime {
+	font-family: Courier, monospace;	
+	font-size: 100%;
+ 	text-align: center;	
+}
+
+
+/* label {
+    display: inline-block;
+    width: 140px;
+    text-align: right;} */
+
+    /* label { float: right; width: 10em; margin-right: 1em; } */
+
+    
 .start, .init {
     color: blue;
 
@@ -85,8 +129,3 @@ button#visbutton {
 }
 
 
-#inittime {
-	font-family: Courier, monospace;	
-	font-size: 20px;
- 	text-align: center;	
-}
