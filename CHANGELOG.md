@@ -1,5 +1,9 @@
+### 11-12-2019
 
-### 25-11-219
+* bugfix, statusline
+* pulsating coins, css animation
+
+### 25-11-2019
 
 * storage sound
 

@@ -15,7 +15,7 @@ function Preferences(props) {
     }
     return (
         <div id="preferences">
-            <button className="link-button" value={buttonvalue} onClick={props.visibility}>Prefs {buttonvalue}</button>
+            <button className="link-button" value={buttonvalue} onClick={props.visibility}>config {buttonvalue}</button>
             <div id="configuration"  className={klass} >
                 <div className="config">
                     <label htmlFor="inittime">start time: </label>

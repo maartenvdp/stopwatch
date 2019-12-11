@@ -5,10 +5,6 @@ import React from 'react';
 
 function Statusline(props) {
     let statustext = 'Ready to Go';
-    // let statuslines = ['Ready to Go', 'Running', 'Interupted', 'Stopped'];
-    // let seconds = time[1];
-    // let minutes = time[0];
-    // console.log('statusline seconds:', seconds);
     if (props.time === '0:00') {
         statustext = 'BOOOOOOOOOM!';
     } else if (props.activebutton === 'start') {
@@ -37,12 +33,22 @@ function Coins(props) {
     ncoins = seconds === 0 ? minutes : minutes + 1;
     // console.log(ncoins);
     let coins = [];
+    // let animatedcoins = []; // svg
+    // let distance = 35;
     for (let i = 0; i < ncoins; ++i) {
-        coins.push(<div className="coin" key={i}></div>)
+        coins.push(<div className="coin animated pulse infinite" key={i}></div>);
+        // animatedcoins.push(<circle className="animated pulse infinite" cx={distance} cy="50%" r="2" key={i} />)
+        // distance += 5.6;
     }
     return (
         <div className="coins">
             {coins}
+            {/* <svg  viewBox="0 0 100 10" xmlns="http://www.w3.org/2000/svg"> */}
+            {/* {animatedcoins} */}
+            {/* </svg> */}
+            
+  {/* <circle className="animated pulse infinite" cx="20%" cy="50%" r="3"/> */}
+
         </div>
     )
 }

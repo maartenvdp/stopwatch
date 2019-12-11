@@ -1,6 +1,8 @@
 import React from 'react';
-
+import './animate.css';
+// https://daneden.github.io/animate.css/
 import './watch.css';
+
 
 import Timer from './components/Timer'
 import { Knoppenbord } from './components/Knoppenbord'
@@ -22,7 +24,7 @@ class App extends React.Component {
             visible: 'yes',
             sound: 'yes'
         };
-        
+
         this.verwerkKlik = this.verwerkKlik.bind(this);
         this.changeStartTime = this.changeStartTime.bind(this);
         this.validateTimeOnBlur = this.validateTimeOnBlur.bind(this);
@@ -43,49 +45,38 @@ class App extends React.Component {
             this.setState({ time: document.getElementById("inittime").value });
             this.setState({ starttime: document.getElementById("inittime").value });
             localStorage.setItem('initt', document.getElementById("inittime").value);
-        }  
+        }
         // Configuration show
         if (localStorage.getItem('showconfig')) {
-            let showconfig= localStorage.getItem('showconfig') === 'show'? 'yes':'no';
-            this.setState({ visible: showconfig});
+            let showconfig = localStorage.getItem('showconfig') === 'show' ? 'yes' : 'no';
+            this.setState({ visible: showconfig });
         }
 
         if (localStorage.getItem('sound')) {
-            let sound= localStorage.getItem('sound');
-            this.setState({ sound: sound});
+            let sound = localStorage.getItem('sound');
+            this.setState({ sound: sound });
         }
 
 
     }
 
     verwerkKlik(e) { // from dashboard
-        // console.log(e.target.value);
-        // console.log('verwerkKlik ' + e);
         if (e.target.value === 'start') {
             this.componentDidMount();
             clearInterval(this.timer)
             this.timer = setInterval(() => this.updateTime(), 1000);
-        } else if(e.target.value === 'wait'){ // not sure if this is alright
-            // this.setState({ starttime:  });
+        } else if (e.target.value === 'wait') { // not sure if this is alright
             clearInterval(this.timer)
 
-        } else if(e.target.value === 'continue'){
+        } else if (e.target.value === 'continue') {
             clearInterval(this.timer)
             this.timer = setInterval(() => this.updateTime(), 1000);
         } else {
             clearInterval(this.timer)
         }
-
-    
-
-
-
         this.setState({ activebutton: e.target.value }, function () {
             // console.log(this.state.activebutton);
         });
-        // const i = this.buttons.indexOf(e.target.value);
-        // const status = this.statuslines[i];
-        // this.setState({ statustext: status });
     }
 
     verwerkVisibilitiyClick = (e) => { // from Preferences, don't need to bind the handler in the constructor
@@ -93,28 +84,21 @@ class App extends React.Component {
         console.log(e.target.value);
         // e.preventDefault();
         if (e.target.value === 'show') {
-            this.setState({ visible: 'yes'});
+            this.setState({ visible: 'yes' });
 
-        } else if(e.target.value === 'hide') {
-            this.setState({ visible: 'no'});
+        } else if (e.target.value === 'hide') {
+            this.setState({ visible: 'no' });
 
-        }   
-        this.setState({ activebutton: '' });
-
+        }
         localStorage.setItem('showconfig', e.target.value);
-
-   
     }
 
     updateTime() {
         let currentTime = this.state.time;
         let currentSeconds = time2seconds(currentTime) - 1;
         let newTime = seconds2time(currentSeconds);
-        if(currentSeconds === 0) {
- 
+        if (currentSeconds === 0) {
             clearInterval(this.timer); // is this the place?
-            // this.setState({ activebutton: 'stop' });
-
         }
         this.setState({ time: newTime });
     }
@@ -141,35 +125,28 @@ class App extends React.Component {
     }
 
     onSoundChange = (e) => { // from Preferences, don't need to bind the handler in the constructor
-    // console.log(e.target);
-    console.log('sound', e.target.value);
-    if (e.target.value === 'no') {
-        this.setState({ sound: 'no'});
+        // console.log(e.target);
+        console.log('sound', e.target.value);
+        if (e.target.value === 'no') {
+            this.setState({ sound: 'no' });
+        } else {
+            this.setState({ sound: 'yes' });
+        }
+        localStorage.setItem('sound', e.target.value);
 
-    } else  {
-        this.setState({ sound: 'yes'});
-
-    }   
-    localStorage.setItem('sound', e.target.value);
-
-
-    // this.setState({ activebutton: '' });
-
-
-
-}
+    }
 
 
 
     render() {
-      
+
         return (
             <div id="stopwatch">
                 <Timer time={this.state.time} activebutton={this.state.activebutton} />
-                <Statusline time={this.state.time} activebutton={this.state.activebutton}  />
+                <Statusline time={this.state.time} activebutton={this.state.activebutton} />
                 <Knoppenbord action={this.verwerkKlik} time={this.state.time} activebutton={this.state.activebutton} />
                 <Coins activebutton={this.state.activebutton} time={this.state.time} />
-                <Preferences preferences={this.state}  action={this.changeStartTime} validate={this.validateTimeOnBlur} visibility={this.verwerkVisibilitiyClick} onSoundChange={this.onSoundChange} />
+                <Preferences preferences={this.state} action={this.changeStartTime} validate={this.validateTimeOnBlur} visibility={this.verwerkVisibilitiyClick} onSoundChange={this.onSoundChange} />
                 <Sound activebutton={this.state.activebutton} time={this.state.time} sound={this.state.sound} />
                 <Storage starttime={this.state.starttime} />
             </div>

@@ -34,8 +34,8 @@ div#timer {
     color: black;
     border-radius: 50%;
     display: inline-block;
-    padding: 1px;
-    margin: 1px;
+    padding: 2px;
+    margin: 2px;
     border-color:  black;
     width: 70px;
     min-height: 70px;
@@ -43,18 +43,23 @@ div#timer {
  
 }
 
+.animated {
+    animation-duration: 2s;
+    animation-fill-mode: both;
+}
 
 
 /* https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md */
 
 .link-button {
+    font-size: 25px;
     background-color: transparent;
     border: none;
     cursor: pointer;
     text-decoration: underline;
     display: inline;
     margin: 0;
-    padding: 0;
+    padding: 10px;
   }
   
   .link-button:hover,
@@ -64,6 +69,8 @@ div#timer {
 
  /* preferences */
 #preferences {
+    /* display: flex;
+    justify-content: center; */
     /* position: relative; */
     /* left: 100px; */
     color: goldenrod;
@@ -71,14 +78,20 @@ div#timer {
 
 }
 
+/* #preferences input {
+    color: red;
+} */
+
 #configuration {
-    position: relative;
-    top: 30px;
-    left: 40px;
+    /* justify-content: left; */
+    /* position: relative; */
+    /* top: 30px; */
+    /* left: 40px; */
 }
 
 .config {
-    position: relative;
+    /* display: flex; */
+    /* justify-content: sleft; */
     left: 10px;
 }
 .hideconfiguration {

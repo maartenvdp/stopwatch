@@ -29,6 +29,8 @@ function Timer(props) {
  
 
     }
+
+    classname += " bounceIn animated";
     // console.log('classname: ', classname);
 
     return (
