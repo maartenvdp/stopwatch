@@ -1,5 +1,6 @@
 ### 11-12-2019
 
+* flexgrid (thanks Joey)
 * bugfix, statusline
 * pulsating coins, css animation
 

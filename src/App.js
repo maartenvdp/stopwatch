@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css'
 import './animate.css';
 // https://daneden.github.io/animate.css/
 import './watch.css';
@@ -6,7 +7,9 @@ import './watch.css';
 
 import Timer from './components/Timer'
 import { Knoppenbord } from './components/Knoppenbord'
-import { Statusline, Coins } from './components/Statusline'
+import Statusline from './components/Statusline'
+import Coins  from './components/Coins'
+
 import Preferences from './components/Preferences'
 import Sound from './components/Sound'
 import Storage from './components/Storage'

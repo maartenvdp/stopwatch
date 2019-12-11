@@ -1,36 +1,43 @@
+#root {
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+
+    /* text-align: center; */
+}
+
 #stopwatch {
-	text-align: center;
+    
+    display: flex;
+    align-items: center; 
+    flex-direction: column;
+}
+
+#timer {
+
+}
+
+#message {
+	font-family: Courier, monospace;
+     color: green;
+     padding: 5px;
 }
 
 
 button {
 	font-size: 35px;
 }
-#message {
-	font-family: Courier, monospace;
-     text-align: center;
-     color: green;
-     padding: 5px;
+
+
+ /* preferences */
+ #preferences {
+    justify-content: right;
+    /* background-color: lightgreen; */
+    align-items: flex-start;
 }
 
-/* #timer {	
-	margin-bottom:0px;
-	margin-top: 0px;
-} */
-
-div#timer {
-	font-size: 140px;
-	/* font-weight: bold; */
-    text-align: center;
-    /* color: green; */
-}
-
-.coins {
-    padding: 15px;
-}
 .coin {
     background-color: orange;
-    opacity: 0.6;
     color: black;
     border-radius: 50%;
     display: inline-block;
@@ -67,53 +74,30 @@ div#timer {
   text-decoration: none;
   }
 
- /* preferences */
-#preferences {
-    /* display: flex;
-    justify-content: center; */
-    /* position: relative; */
-    /* left: 100px; */
-    color: goldenrod;
-    /* text-align: left; */
 
-}
 
-/* #preferences input {
-    color: red;
-} */
 
 #configuration {
-    /* justify-content: left; */
-    /* position: relative; */
-    /* top: 30px; */
-    /* left: 40px; */
+    justify-content: right;
+
 }
 
-.config {
-    /* display: flex; */
-    /* justify-content: sleft; */
-    left: 10px;
-}
+
 .hideconfiguration {
     display: none; 
 }
 
 
+.config label {
+    display: flex;
+    justify-content: left;
+}
+
 #inittime {
 	font-family: Courier, monospace;	
 	font-size: 100%;
- 	text-align: center;	
 }
-
-
-/* label {
-    display: inline-block;
-    width: 140px;
-    text-align: right;} */
-
-    /* label { float: right; width: 10em; margin-right: 1em; } */
-
-    
+   
 .start, .init {
     color: blue;
 
@@ -142,3 +126,18 @@ div#timer {
 }
 
 
+label {
+    color: black;
+    font-weight: bold;
+}
+
+#knoppenbord {
+}
+
+.coins {
+    padding: 15px;
+}
+
+div#timer {
+	font-size: 140px;
+}
